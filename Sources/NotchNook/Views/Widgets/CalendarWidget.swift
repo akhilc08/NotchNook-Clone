@@ -31,10 +31,11 @@ struct CalendarWidget: View {
                     VStack(spacing: 6) {
                         Image(systemName: "checkmark.circle")
                             .font(.system(size: 22))
-                            .foregroundStyle(.green.opacity(0.7))
+                            .foregroundStyle(NotchTheme.accent.opacity(0.7))
+                            .accessibilityHidden(true)
                         Text("All clear today")
                             .font(.system(size: 11))
-                            .foregroundStyle(.white.opacity(0.4))
+                            .foregroundStyle(.white.opacity(NotchTheme.Opacity.tertiary))
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.top, 24)
@@ -53,6 +54,7 @@ struct CalendarWidget: View {
             RoundedRectangle(cornerRadius: 2)
                 .fill(e.calendarColor)
                 .frame(width: 3, height: 34)
+                .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(e.title)
@@ -61,18 +63,18 @@ struct CalendarWidget: View {
                     .lineLimit(1)
                 Text(e.relativeLabel)
                     .font(.system(size: 9))
-                    .foregroundStyle(.white.opacity(0.45))
+                    .foregroundStyle(.white.opacity(NotchTheme.Opacity.tertiary))
             }
             .frame(maxWidth: .infinity, alignment: .leading)
 
             Text(e.timeString)
                 .font(.system(size: 9, design: .monospaced))
-                .foregroundStyle(.white.opacity(0.35))
+                .foregroundStyle(.white.opacity(NotchTheme.Opacity.tertiary))
         }
-        .padding(.vertical, 5)
-        .padding(.horizontal, 8)
-        .background(Color.white.opacity(0.05))
-        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+        .padding(.vertical, 6)
+        .padding(.horizontal, 4)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(e.title), \(e.relativeLabel), \(e.timeString)")
     }
 
     // MARK: - Permission views
@@ -81,14 +83,16 @@ struct CalendarWidget: View {
         VStack(spacing: 8) {
             Image(systemName: "calendar.badge.plus")
                 .font(.system(size: 26))
-                .foregroundStyle(.white.opacity(0.3))
+                .foregroundStyle(.white.opacity(NotchTheme.Opacity.ghost + 0.1))
+                .accessibilityHidden(true)
             Text("Calendar access needed")
                 .font(.system(size: 11))
-                .foregroundStyle(.white.opacity(0.45))
+                .foregroundStyle(.white.opacity(NotchTheme.Opacity.tertiary))
             Button("Grant Access") { CalendarService.shared.start() }
                 .buttonStyle(.plain)
                 .font(.system(size: 11, weight: .medium))
-                .foregroundStyle(.blue)
+                .foregroundStyle(NotchTheme.accent)
+                .accessibilityLabel("Grant calendar access")
         }
     }
 
@@ -96,10 +100,11 @@ struct CalendarWidget: View {
         VStack(spacing: 8) {
             Image(systemName: "calendar.badge.exclamationmark")
                 .font(.system(size: 26))
-                .foregroundStyle(.white.opacity(0.3))
+                .foregroundStyle(.white.opacity(NotchTheme.Opacity.ghost + 0.1))
+                .accessibilityHidden(true)
             Text("Calendar access denied")
                 .font(.system(size: 11))
-                .foregroundStyle(.white.opacity(0.4))
+                .foregroundStyle(.white.opacity(NotchTheme.Opacity.tertiary))
             Button("Open System Settings") {
                 if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Calendars") {
                     NSWorkspace.shared.open(url)
@@ -107,7 +112,8 @@ struct CalendarWidget: View {
             }
             .buttonStyle(.plain)
             .font(.system(size: 11))
-            .foregroundStyle(.blue)
+            .foregroundStyle(NotchTheme.accent)
+            .accessibilityLabel("Open System Settings for calendar permissions")
         }
     }
 }

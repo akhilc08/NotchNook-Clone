@@ -3,7 +3,6 @@ import ServiceManagement
 
 struct SettingsView: View {
     @State private var launchAtLogin = false
-    @State private var expandOnHover = true
 
     var body: some View {
         ZStack {
@@ -11,26 +10,17 @@ struct SettingsView: View {
 
             VStack(spacing: 0) {
                 // Header
-                HStack(spacing: 12) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 12, style: .continuous)
-                            .fill(.black)
-                            .frame(width: 44, height: 44)
-                        Image(systemName: "sparkles")
-                            .font(.system(size: 22))
-                            .foregroundStyle(.white)
-                    }
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("NotchNook")
-                            .font(.system(size: 16, weight: .bold))
-                            .foregroundStyle(.white)
-                        Text("Version 1.0  •  Your notch, elevated")
-                            .font(.system(size: 10))
-                            .foregroundStyle(.white.opacity(0.45))
-                    }
+                HStack {
+                    Text("NotchNook")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(.white)
                     Spacer()
+                    Text("v1.0")
+                        .font(.system(size: 10))
+                        .foregroundStyle(.white.opacity(NotchTheme.Opacity.ghost))
                 }
-                .padding(20)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 16)
 
                 Divider().background(Color.white.opacity(0.1))
 
@@ -42,18 +32,14 @@ struct SettingsView: View {
                                 Toggle("", isOn: $launchAtLogin)
                                     .labelsHidden()
                                     .toggleStyle(.switch)
-                                    .onChange(of: launchAtLogin) { val in
+                                    .onChange(of: launchAtLogin) { _, val in
                                         if #available(macOS 13.0, *) {
                                             if val { try? SMAppService.mainApp.register() }
                                             else   { try? SMAppService.mainApp.unregister() }
                                         }
                                     }
                             }
-                            settingsRow(title: "Expand on hover", icon: "arrow.up.left.and.arrow.down.right") {
-                                Toggle("", isOn: $expandOnHover)
-                                    .labelsHidden()
-                                    .toggleStyle(.switch)
-                            }
+
                         }
 
                         settingsSection("Permissions") {
@@ -65,7 +51,7 @@ struct SettingsView: View {
                                 }
                                 .buttonStyle(.plain)
                                 .font(.system(size: 10))
-                                .foregroundStyle(.blue)
+                                .foregroundStyle(NotchTheme.accent)
                             }
                             settingsRow(title: "Spotify automation", icon: "music.note") {
                                 Button("Open Settings") {
@@ -75,7 +61,7 @@ struct SettingsView: View {
                                 }
                                 .buttonStyle(.plain)
                                 .font(.system(size: 10))
-                                .foregroundStyle(.blue)
+                                .foregroundStyle(NotchTheme.accent)
                             }
                         }
                     }
@@ -84,7 +70,7 @@ struct SettingsView: View {
             }
         }
         .preferredColorScheme(.dark)
-        .frame(width: 440, height: 380)
+        .frame(width: 380, height: 260)
         .onAppear {
             if #available(macOS 13.0, *) {
                 launchAtLogin = SMAppService.mainApp.status == .enabled
@@ -97,8 +83,8 @@ struct SettingsView: View {
     private func settingsSection<Content: View>(_ title: String, @ViewBuilder content: () -> Content) -> some View {
         VStack(alignment: .leading, spacing: 1) {
             Text(title.uppercased())
-                .font(.system(size: 9, weight: .semibold))
-                .foregroundStyle(.white.opacity(0.35))
+                .font(.system(size: 9, weight: .regular))
+                .foregroundStyle(.white.opacity(NotchTheme.Opacity.tertiary))
                 .padding(.horizontal, 12)
                 .padding(.top, 12)
                 .padding(.bottom, 4)
@@ -112,8 +98,9 @@ struct SettingsView: View {
                 .font(.system(size: 13))
                 .foregroundStyle(.white.opacity(0.6))
                 .frame(width: 20)
+                .accessibilityHidden(true)
             Text(title)
-                .font(.system(size: 12))
+                .font(.system(size: 11))
                 .foregroundStyle(.white.opacity(0.85))
             Spacer()
             trailing()
