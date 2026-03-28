@@ -1,42 +1,22 @@
 import SwiftUI
 
-/// Full panel shown below the notch when expanded.
 struct ExpandedView: View {
     @EnvironmentObject private var state:   NotchState
     @EnvironmentObject private var spotify: SpotifyService
 
     var body: some View {
-        ZStack {
-            // Frosted glass base
-            VisualEffectView(material: .hudWindow, blendingMode: .behindWindow)
-            // Album-art colour tint
-            spotify.dominantColor.opacity(0.07)
-        }
-        .clipShape(
-            UnevenRoundedRectangle(
-                topLeadingRadius:     0,
-                bottomLeadingRadius:  20,
-                bottomTrailingRadius: 20,
-                topTrailingRadius:    0,
-                style: .continuous
+        NotchTheme.panelColor
+            .overlay(
+                VStack(spacing: 0) {
+                    tabBar
+                        .padding(.top, 10)
+                        .padding(.horizontal, 12)
+                        .padding(.bottom, 8)
+
+                    tabContent
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
             )
-        )
-        .overlay(
-            VStack(spacing: 0) {
-                tabBar
-                    .padding(.top, 10)
-                    .padding(.horizontal, 14)
-
-                Divider()
-                    .background(Color.white.opacity(0.08))
-                    .padding(.horizontal, 14)
-                    .padding(.top, 8)
-
-                tabContent
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 14)
-            }
-        )
     }
 
     // MARK: - Tab Bar
@@ -55,17 +35,16 @@ struct ExpandedView: View {
         } label: {
             Image(systemName: tab.rawValue)
                 .font(.system(size: 13, weight: .medium))
-                .foregroundStyle(state.activeTab == tab ? .white : .white.opacity(0.35))
+                .foregroundStyle(state.activeTab == tab
+                    ? spotify.dominantColor
+                    : .white.opacity(NotchTheme.Opacity.tertiary))
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 6)
-                .background(
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .fill(state.activeTab == tab
-                              ? Color.white.opacity(0.12)
-                              : Color.clear)
-                )
+                .padding(.vertical, 7)
+                .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
+        .help(tab.accessibilityLabel)
+        .accessibilityLabel(tab.accessibilityLabel)
     }
 
     // MARK: - Content
@@ -73,10 +52,20 @@ struct ExpandedView: View {
     @ViewBuilder
     private var tabContent: some View {
         switch state.activeTab {
-        case .music:     SpotifyWidget()
-        case .calendar:  CalendarWidget()
-        case .stats:     SystemStatsWidget()
-        case .clipboard: ClipboardWidget()
+        case .music:
+            SpotifyWidget()
+        case .calendar:
+            CalendarWidget()
+                .padding(.horizontal, 14)
+                .padding(.vertical, 10)
+        case .clipboard:
+            ClipboardWidget()
+                .padding(.horizontal, 14)
+                .padding(.vertical, 10)
+        case .productivity:
+            TimerWidget()
+                .padding(.horizontal, 14)
+                .padding(.vertical, 10)
         }
     }
 }

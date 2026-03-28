@@ -9,7 +9,7 @@ final class SpotifyService: ObservableObject {
     @Published var isPlaying:        Bool          = false
     @Published var playerPosition:   Double        = 0
     @Published var albumArt:         NSImage?      = nil
-    @Published var dominantColor:    Color         = Color(red: 0.2, green: 0.55, blue: 1.0)
+    @Published var dominantColor:    Color         = NotchTheme.accent
     @Published var isSpotifyRunning: Bool          = false
     @Published var volume:           Double        = 80
 
@@ -105,7 +105,11 @@ final class SpotifyService: ObservableObject {
     private func tintFrom(_ img: NSImage) {
         Task.detached(priority: .utility) {
             let c = img.dominantColor()
-            await MainActor.run { self.dominantColor = c }
+            await MainActor.run {
+                withAnimation(.easeInOut(duration: 0.7)) {
+                    self.dominantColor = c
+                }
+            }
         }
     }
 
@@ -116,6 +120,7 @@ final class SpotifyService: ObservableObject {
     func prevTrack()  { send("previous track"); refresh(after: 0.4) }
 
     func setVolume(_ v: Double) {
+        volume = v  // immediate UI feedback before next poll cycle
         send("set sound volume to \(Int(v))")
     }
 

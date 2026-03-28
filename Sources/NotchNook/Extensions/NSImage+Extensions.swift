@@ -2,13 +2,16 @@ import AppKit
 import SwiftUI
 
 extension NSImage {
-    /// Samples the image at low resolution and returns a vibrant dominant color,
-    /// skipping near-black and near-white pixels.
+    /// Samples the image and returns the most vibrant color suitable for tinting
+    /// dark UI on pure black. Picks the highest-saturation pixel rather than
+    /// averaging, then normalises brightness into the 0.65–0.80 band so it
+    /// always reads clearly against black.
     func dominantColor() -> Color {
+        let fallback = Color(red: 0.30, green: 0.45, blue: 0.82)
         guard let cgImg = cgImage(forProposedRect: nil, context: nil, hints: nil) else {
-            return .blue
+            return fallback
         }
-        let side = 24
+        let side = 32
         let bpr  = side * 4
         var pixels = [UInt8](repeating: 0, count: side * bpr)
         guard let ctx = CGContext(
@@ -18,24 +21,45 @@ extension NSImage {
             bytesPerRow: bpr,
             space: CGColorSpaceCreateDeviceRGB(),
             bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
-        ) else { return .blue }
+        ) else { return fallback }
 
         ctx.draw(cgImg, in: CGRect(x: 0, y: 0, width: side, height: side))
 
-        var rS = 0, gS = 0, bS = 0, n = 0
-        let stride = 4
-        for i in Swift.stride(from: 0, to: pixels.count, by: stride) {
-            let r = Int(pixels[i]), g = Int(pixels[i+1]), b = Int(pixels[i+2])
-            let brightness = (r + g + b) / 3
-            guard brightness > 25 && brightness < 230 else { continue }
-            rS += r; gS += g; bS += b; n += 1
-        }
-        guard n > 0 else { return .blue }
+        var bestScore: Double = -1
+        var bestR: Double = 0, bestG: Double = 0, bestB: Double = 0
 
-        // Boost saturation slightly
-        let rf = Double(rS) / Double(n) / 255.0
-        let gf = Double(gS) / Double(n) / 255.0
-        let bf = Double(bS) / Double(n) / 255.0
-        return Color(red: rf, green: gf, blue: bf)
+        for i in Swift.stride(from: 0, to: pixels.count, by: 4) {
+            let r = Double(pixels[i])   / 255.0
+            let g = Double(pixels[i+1]) / 255.0
+            let b = Double(pixels[i+2]) / 255.0
+
+            let maxC = max(r, g, b)
+            let minC = min(r, g, b)
+            let brightness  = maxC
+            let saturation  = maxC > 0.001 ? (maxC - minC) / maxC : 0
+
+            // Skip near-black and near-white — they make bad tint colors
+            guard brightness > 0.12 && brightness < 0.93 else { continue }
+
+            // Reward saturation; ideal brightness around 0.65, penalise extremes
+            let brightPenalty = 1.0 - pow((brightness - 0.65) * 2.0, 2)
+            let score = saturation * max(0, brightPenalty)
+
+            if score > bestScore {
+                bestScore = score
+                bestR = r; bestG = g; bestB = b
+            }
+        }
+
+        guard bestScore > 0.08 else { return fallback }
+
+        // Normalise brightness into 0.65–0.80 so it reads well on pure black
+        let maxC = max(bestR, bestG, bestB)
+        if maxC > 0.001 {
+            let targetBrightness = min(0.80, max(0.65, maxC))
+            let scale = targetBrightness / maxC
+            return Color(red: bestR * scale, green: bestG * scale, blue: bestB * scale)
+        }
+        return Color(red: bestR, green: bestG, blue: bestB)
     }
 }
