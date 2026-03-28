@@ -14,7 +14,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         SpotifyService.shared.startMonitoring()
         CalendarService.shared.start()
-        SystemStatsService.shared.start()
         ClipboardService.shared.start()
     }
 
@@ -53,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc private func openSettings() {
         if settingsWindow == nil {
             let win = NSWindow(
-                contentRect: NSRect(x: 0, y: 0, width: 440, height: 380),
+                contentRect: NSRect(x: 0, y: 0, width: 380, height: 260),
                 styleMask: [.titled, .closable, .miniaturizable],
                 backing: .buffered,
                 defer: false

@@ -13,7 +13,10 @@ struct AudioWaveView: View {
         HStack(spacing: 1.5) {
             bar(0); bar(1); bar(2); bar(3)
         }
-        .onAppear { if isAnimating { phase = true } }
+        .onAppear { phase = isAnimating }
+        .onChange(of: isAnimating) { _, newValue in
+            phase = newValue
+        }
     }
 
     private func bar(_ i: Int) -> some View {
@@ -26,7 +29,7 @@ struct AudioWaveView: View {
             .animation(
                 isAnimating
                     ? Animation.easeInOut(duration: dur).repeatForever(autoreverses: true).delay(delay)
-                    : .default,
+                    : .easeOut(duration: 0.2),
                 value: phase
             )
     }
