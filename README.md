@@ -1,5 +1,9 @@
 # NotchNook Clone
 
+<img width="881" height="323" alt="Screenshot 2026-03-28 at 2 47 50 PM" src="https://github.com/user-attachments/assets/15565d7d-6978-4c59-9d6f-e15120cff57f" />
+
+
+
 A macOS menubar app that lives inside the physical notch of your MacBook. Hover to expand, see your music, calendar, clipboard, and a focus timer — then it retreats. Built with SwiftUI, zero dependencies.
 
 ## What it does
