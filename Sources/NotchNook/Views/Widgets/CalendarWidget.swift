@@ -2,7 +2,8 @@ import SwiftUI
 import EventKit
 
 struct CalendarWidget: View {
-    @EnvironmentObject private var cal: CalendarService
+    @EnvironmentObject private var cal:     CalendarService
+    @EnvironmentObject private var spotify: SpotifyService
 
     var body: some View {
         let status = cal.authStatus
@@ -31,7 +32,7 @@ struct CalendarWidget: View {
                     VStack(spacing: 6) {
                         Image(systemName: "checkmark.circle")
                             .font(.system(size: 22))
-                            .foregroundStyle(NotchTheme.accent.opacity(0.7))
+                            .foregroundStyle(spotify.dominantColor.opacity(0.7))
                             .accessibilityHidden(true)
                         Text("All clear today")
                             .font(.system(size: 11))
@@ -91,7 +92,7 @@ struct CalendarWidget: View {
             Button("Grant Access") { CalendarService.shared.start() }
                 .buttonStyle(.plain)
                 .font(.system(size: 11, weight: .medium))
-                .foregroundStyle(NotchTheme.accent)
+                .foregroundStyle(spotify.dominantColor)
                 .accessibilityLabel("Grant calendar access")
         }
     }
@@ -112,7 +113,7 @@ struct CalendarWidget: View {
             }
             .buttonStyle(.plain)
             .font(.system(size: 11))
-            .foregroundStyle(NotchTheme.accent)
+            .foregroundStyle(spotify.dominantColor)
             .accessibilityLabel("Open System Settings for calendar permissions")
         }
     }

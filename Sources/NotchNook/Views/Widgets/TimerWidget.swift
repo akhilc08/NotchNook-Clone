@@ -11,7 +11,7 @@ struct TimerWidget: View {
     @State private var doneGlow:     Bool   = false
     @State private var pulseScale:   CGFloat = 1.0
 
-    private let accent = NotchTheme.accent
+    @EnvironmentObject private var spotify: SpotifyService
 
     private let presets: [(label: String, seconds: Double)] = [
         ("2 hr",    2 * 3600),
@@ -50,7 +50,7 @@ struct TimerWidget: View {
                 .trim(from: 0, to: remaining <= 0 ? 1.0 : progress)
                 .stroke(
                     AngularGradient(
-                        gradient: Gradient(colors: [accent.opacity(0.3), accent]),
+                        gradient: Gradient(colors: [spotify.dominantColor.opacity(0.3), spotify.dominantColor]),
                         center: .center,
                         startAngle: .degrees(-90),
                         endAngle: .degrees(270)
@@ -65,25 +65,25 @@ struct TimerWidget: View {
 
             if isRunning {
                 Circle()
-                    .fill(accent)
+                    .fill(spotify.dominantColor)
                     .frame(width: 5, height: 5)
                     .offset(y: -48)
                     .rotationEffect(.degrees(-90 + progress * 360))
                     .animation(.linear(duration: 0.5), value: progress)
-                    .shadow(color: accent.opacity(0.9), radius: 5)
+                    .shadow(color: spotify.dominantColor.opacity(0.9), radius: 5)
             }
 
             VStack(spacing: 2) {
                 Text(timeString)
                     .font(.system(size: 15, weight: .light, design: .monospaced))
-                    .foregroundStyle(remaining <= 0 ? accent : .white)
+                    .foregroundStyle(remaining <= 0 ? spotify.dominantColor : .white)
                     .scaleEffect(pulseScale)
                     .animation(.easeInOut(duration: 0.5), value: pulseScale)
 
                 Text(stateLabel)
                     .font(.system(size: 9, weight: .medium))
                     .foregroundStyle(remaining <= 0
-                        ? accent.opacity(0.8)
+                        ? spotify.dominantColor.opacity(0.8)
                         : .white.opacity(NotchTheme.Opacity.tertiary))
                     .kerning(1.8)
                     .textCase(.uppercase)
@@ -111,15 +111,15 @@ struct TimerWidget: View {
                         Text("Start again")
                             .font(.system(size: 11, weight: .medium))
                     }
-                    .foregroundStyle(accent)
+                    .foregroundStyle(spotify.dominantColor)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 8)
                     .background(
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(accent.opacity(0.12))
+                            .fill(spotify.dominantColor.opacity(0.12))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)
-                                    .stroke(accent.opacity(0.35), lineWidth: 0.8)
+                                    .stroke(spotify.dominantColor.opacity(0.35), lineWidth: 0.8)
                             )
                     )
                 }
@@ -143,8 +143,8 @@ struct TimerWidget: View {
                             .font(.system(size: 15, weight: .semibold))
                             .foregroundStyle(.black)
                             .frame(width: 44, height: 44)
-                            .background(Circle().fill(accent))
-                            .shadow(color: accent.opacity(0.4), radius: 8, y: 2)
+                            .background(Circle().fill(spotify.dominantColor))
+                            .shadow(color: spotify.dominantColor.opacity(0.4), radius: 8, y: 2)
                     }
                     .buttonStyle(.plain)
                 }
@@ -158,7 +158,7 @@ struct TimerWidget: View {
         return Button { applyPreset(preset.seconds) } label: {
             HStack(spacing: 6) {
                 Circle()
-                    .fill(active ? accent : Color.white.opacity(0.18))
+                    .fill(active ? spotify.dominantColor : Color.white.opacity(0.18))
                     .frame(width: 5, height: 5)
                 Text(preset.label)
                     .font(.system(size: 11, weight: active ? .medium : .regular))
@@ -170,11 +170,11 @@ struct TimerWidget: View {
             .frame(maxWidth: .infinity)
             .background(
                 RoundedRectangle(cornerRadius: 7, style: .continuous)
-                    .fill(active ? accent.opacity(0.1) : Color.white.opacity(0.04))
+                    .fill(active ? spotify.dominantColor.opacity(0.1) : Color.white.opacity(0.04))
                     .overlay(
                         RoundedRectangle(cornerRadius: 7, style: .continuous)
                             .stroke(
-                                active ? accent.opacity(0.3) : Color.white.opacity(0.06),
+                                active ? spotify.dominantColor.opacity(0.3) : Color.white.opacity(0.06),
                                 lineWidth: 0.5
                             )
                     )
