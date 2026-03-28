@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>com.notchnook.clone</string>
+    <key>CFBundleName</key>
+    <string>NotchNook</string>
+    <key>CFBundleDisplayName</key>
+    <string>NotchNook</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>CFBundleExecutable</key>
+    <string>NotchNook</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>13.0</string>
+    <key>LSUIElement</key>
+    <true/>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>NotchNook shows upcoming calendar events in the notch.</string>
+    <key>NSCalendarsFullAccessUsageDescription</key>
+    <string>NotchNook shows upcoming calendar events in the notch.</string>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>NotchNook controls Spotify for now-playing information.</string>
+    <key>NSAppleScriptEnabled</key>
+    <true/>
+</dict>
+</plist>

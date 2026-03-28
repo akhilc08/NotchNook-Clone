@@ -1,0 +1,145 @@
+{
+  "": {
+    "dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchNook.d",
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchNook.o",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/primary.swiftdeps"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/AppDelegate.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/AppDelegate.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/AppDelegate~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/AppDelegate.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/AppDelegate.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Extensions/NSImage+Extensions.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NSImage+Extensions.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NSImage+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NSImage+Extensions.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NSImage+Extensions.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Models/SpotifyTrack.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SpotifyTrack.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SpotifyTrack~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SpotifyTrack.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SpotifyTrack.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/NotchState.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchState.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchState~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchState.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchState.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Services/CalendarService.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/CalendarService.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/CalendarService~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/CalendarService.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/CalendarService.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Services/ClipboardService.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/ClipboardService.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/ClipboardService~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/ClipboardService.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/ClipboardService.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Services/SpotifyService.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SpotifyService.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SpotifyService~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SpotifyService.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SpotifyService.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Services/SystemStatsService.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SystemStatsService.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SystemStatsService~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SystemStatsService.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SystemStatsService.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Views/CompactView.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/CompactView.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/CompactView~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/CompactView.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/CompactView.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Views/Components/AlbumArtView.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/AlbumArtView.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/AlbumArtView~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/AlbumArtView.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/AlbumArtView.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Views/Components/AudioWaveView.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/AudioWaveView.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/AudioWaveView~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/AudioWaveView.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/AudioWaveView.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Views/Components/MarqueeText.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/MarqueeText.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/MarqueeText~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/MarqueeText.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/MarqueeText.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Views/Components/VisualEffectView.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/VisualEffectView.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/VisualEffectView~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/VisualEffectView.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/VisualEffectView.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Views/ExpandedView.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/ExpandedView.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/ExpandedView~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/ExpandedView.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/ExpandedView.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Views/NotchRootView.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchRootView.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchRootView~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchRootView.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchRootView.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Views/SettingsView.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SettingsView.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SettingsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SettingsView.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SettingsView.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Views/Widgets/CalendarWidget.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/CalendarWidget.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/CalendarWidget~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/CalendarWidget.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/CalendarWidget.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Views/Widgets/ClipboardWidget.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/ClipboardWidget.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/ClipboardWidget~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/ClipboardWidget.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/ClipboardWidget.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Views/Widgets/SpotifyWidget.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SpotifyWidget.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SpotifyWidget~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SpotifyWidget.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SpotifyWidget.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Views/Widgets/SystemStatsWidget.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SystemStatsWidget.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SystemStatsWidget~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SystemStatsWidget.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/SystemStatsWidget.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Window/NotchHostingView.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchHostingView.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchHostingView~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchHostingView.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchHostingView.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/Window/NotchWindowController.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchWindowController.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchWindowController~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchWindowController.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/NotchWindowController.dia"
+  },
+  "/Users/sickle/Coding/NotchNook-Clone/Sources/NotchNook/main.swift": {
+    "object": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/main.swift.o",
+    "swiftmodule": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/main.swiftdeps",
+    "diagnostics": "/Users/sickle/Coding/NotchNook-Clone/.build/arm64-apple-macosx/release/NotchNook.build/main.dia"
+  }
+}
