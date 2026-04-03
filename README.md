@@ -4,7 +4,7 @@
 
 
 
-A macOS menubar app that lives inside the physical notch of your MacBook. Hover to expand, see your music, calendar, clipboard, and a focus timer — then it retreats. Built with SwiftUI, zero dependencies.
+A macOS menubar app that lives inside the physical notch of your MacBook. Hover and click to expand, see your music, calendar, clipboard, and a focus timer — then it retreats. Built with SwiftUI, zero dependencies.
 
 ## What it does
 
