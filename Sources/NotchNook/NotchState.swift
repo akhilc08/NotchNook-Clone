@@ -5,8 +5,8 @@ import SwiftUI
 final class NotchState: ObservableObject {
     static let shared = NotchState()
 
-    @Published var isExpanded: Bool = false
-    @Published var activeTab:  Tab  = .music
+    @Published var isExpanded:   Bool = false
+    @Published var activeTab:    Tab  = .music
 
     enum Tab: String, CaseIterable {
         case music        = "music.note"

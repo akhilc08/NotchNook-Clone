@@ -6,6 +6,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var notchWindowController: NotchWindowController?
     private var statusItem: NSStatusItem?
     private var settingsWindow: NSWindow?
+    private weak var lockMenuItem: NSMenuItem?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         setupStatusItem()
@@ -33,6 +34,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let prefItem = NSMenuItem(title: "Preferences…", action: #selector(openSettings), keyEquivalent: ",")
         prefItem.target = self
         menu.addItem(prefItem)
+        menu.addItem(.separator())
+
+        let lockItem = NSMenuItem(title: "Lock to Current Space", action: #selector(toggleSpaceLock), keyEquivalent: "l")
+        lockItem.keyEquivalentModifierMask = [.command, .shift]
+        lockItem.target = self
+        menu.addItem(lockItem)
+        lockMenuItem = lockItem
         menu.addItem(.separator())
 
         let loginItem = NSMenuItem(title: "Launch at Login", action: #selector(toggleLaunchAtLogin), keyEquivalent: "")
@@ -65,6 +73,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         settingsWindow?.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
+    }
+
+    @objc private func toggleSpaceLock() {
+        SpaceLockService.shared.toggle(menuItem: lockMenuItem)
     }
 
     @objc private func toggleLaunchAtLogin() {
